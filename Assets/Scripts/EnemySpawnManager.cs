@@ -71,13 +71,14 @@ public class EnemySpawnManager : MonoBehaviour {
 
 					// Create an instance of the enemy prefab at the randomly selected spawn point's position and rotation.
 					enemyShip = Instantiate (enemies [enemyIndex], spawnPoints [spawnPointIndex].position, spawnPoints [spawnPointIndex].rotation) as GameObject;
+					enemyShip.transform.parent = GameObject.FindGameObjectWithTag ("MainTarget").transform;
 					enemyShip.transform.Rotate(0.0f, 90.0f, 0.0f);
 					enemyShip.transform.Rotate(0.0f, 0.0f, -90.0f);
 
 					// Change names to be more readable
 
 					if (enemyShip.name == "star-wars-vader-tie-fighter(Clone)") {
-						enemyShip.transform.localScale = new Vector3 (0.2f, 0.2f, 0.2f);
+						enemyShip.transform.localScale = new Vector3 (0.008f, 0.008f, 0.008f);
 						enemyShip.name = "VaderShip";
 					}
 

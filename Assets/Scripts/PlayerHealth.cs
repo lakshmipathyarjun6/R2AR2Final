@@ -5,7 +5,6 @@ public class PlayerHealth : MonoBehaviour {
 
 	float maxHealth = 100.0f;
 	float curHealth = 0.0f;
-	//public GameObject abuseBar;
 	public GameObject smokingEffect;
 	public GameObject[] flareEffects;
 	public GameObject MainTracker;
@@ -17,22 +16,16 @@ public class PlayerHealth : MonoBehaviour {
 		flareEffects[1].GetComponent<ParticleSystem> ().enableEmission = false;
 		smokingEffect.GetComponent<ParticleSystem> ().enableEmission = false;
 	}
-	
-	// Update is called once per frame
-	/*void Update () {
-		float abuse_calc = curHealth / maxHealth;
-		SetAbuseBar (abuse_calc);
-	}*/
 
 	public void TakeAbuse (float amount) {
 		curHealth -= amount;
 
 		if (curHealth <= 60.0f) {
-			flareEffects[0].GetComponent<ParticleSystem> ().enableEmission = true;
+			flareEffects[0].GetComponent<ParticleSystem> ().Play();
 		}
 
 		if (curHealth <= 40.0f) {
-			flareEffects[1].GetComponent<ParticleSystem> ().enableEmission = true;
+			flareEffects[1].GetComponent<ParticleSystem> ().Play();
 		}
 
 		if (curHealth <= 20.0f) {
@@ -63,9 +56,9 @@ public class PlayerHealth : MonoBehaviour {
 
 			GameObject tryAgainCube = GameObject.CreatePrimitive(PrimitiveType.Cube);
 			tryAgainCube.transform.parent = GameObject.FindGameObjectWithTag ("MainTarget").GetComponent<Transform> ();
-			tryAgainCube.transform.localPosition = new Vector3 (0.0f, 0.2f, -0.12f);
-			tryAgainCube.transform.localScale = new Vector3 (0.3333333f, 0.04666667f, 0.03333334f);
 			tryAgainCube.transform.Rotate (0.0f, 180.0f, 0.0f);
+			tryAgainCube.transform.localPosition = new Vector3 (0.0f, 0.041f, -0.12f);
+			tryAgainCube.transform.localScale = new Vector3 (0.7f, 0.04666667f, 0.2f);
 			tryAgainCube.GetComponent<Renderer>().material = Resources.Load("Materials/TryAgain") as Material;
 			tryAgainCube.GetComponent<BoxCollider> ().isTrigger = true;
 			tryAgainCube.name = "TryAgain";
@@ -77,10 +70,9 @@ public class PlayerHealth : MonoBehaviour {
 
 	public void ResetHealth() {
 		curHealth = maxHealth;
+		flareEffects[0].GetComponent<ParticleSystem> ().enableEmission = false;
+		flareEffects[1].GetComponent<ParticleSystem> ().enableEmission = false;
+		smokingEffect.GetComponent<ParticleSystem> ().enableEmission = false;
 	}
-
-	/*void SetAbuseBar(float abuse) {
-		abuseBar.transform.localScale = new Vector3 (abuse,abuseBar.transform.localScale.y,abuseBar.transform.localScale.z);
-	}*/
 
 }

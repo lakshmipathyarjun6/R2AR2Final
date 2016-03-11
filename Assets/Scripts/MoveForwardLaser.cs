@@ -17,11 +17,11 @@ public class MoveForwardLaser : MonoBehaviour {
 		if(check == 2)
 		{
 			if(EnemySpawnManager.Instance != null)
-				speed = EnemySpawnManager.Instance.wavecount * 10;
+				speed = EnemySpawnManager.Instance.wavecount * 25.0f;
 			transform.position += transform.forward * speed * Time.deltaTime;
 			beam = gameObject.GetComponent<LineRenderer> ();
 			beam.SetPosition (0, transform.position);
-			beam.SetPosition (1, transform.position + transform.forward * 10.0f);
+			beam.SetPosition (1, transform.position + transform.forward * speed);
 		}
 	}
 }

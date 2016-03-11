@@ -14,7 +14,7 @@ public class MoveForwardShip : MonoBehaviour {
 		if(check == 2)
 		{
 			if (EnemySpawnManager.Instance != null) {
-				speed = 10 ; //  EnemySpawnManager.Instance.wavecount;
+				speed = 25; //  EnemySpawnManager.Instance.wavecount;
 			}
 			transform.position += transform.forward * speed * Time.deltaTime;
     	}

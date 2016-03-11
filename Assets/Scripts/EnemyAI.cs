@@ -4,7 +4,7 @@ using System.Collections;
 public class EnemyAI : MonoBehaviour {
 
 	public GameObject player;
-	public float spawnTime = 5f;
+	public float attackTimeStart = 2.0f;
 	public bool canAttackPlayer = false;
 
 	// Use this for initialization
@@ -26,7 +26,7 @@ public class EnemyAI : MonoBehaviour {
 
 		projectileParameters.player = player;
 
-		InvokeRepeating ("Attack", spawnTime, spawnTime);
+		InvokeRepeating ("Attack", attackTimeStart, 4.0f);
 	}
 
 	void Attack () {
