@@ -57,7 +57,7 @@ public class EnemySpawnManager : MonoBehaviour {
 					Text wavetext = GameObject.FindGameObjectWithTag("WaveText").GetComponent<Text>();
 					wavetext.text = "Wave " + wavecount;
 					wavetext.enabled = true;
-					Invoke("Delay", 2);
+					Invoke("Delay", 4);
 					count = 0;
 				}	
 				else if (canSpawn && UIController.Instance.state == 2)  {
