@@ -12,7 +12,7 @@ public class ArduinoBluetooth : MonoBehaviour {
         //bluetoothText.text = "";
 
         // Initialize module and connect to paired Bluetooth device
-        BtConnector.moduleName("HC-06");
+        BtConnector.moduleName("ArjunBT");
         if (!BtConnector.isBluetoothEnabled())
         {
             BtConnector.askEnableBluetooth();
@@ -45,6 +45,7 @@ public class ArduinoBluetooth : MonoBehaviour {
                     {
 						DisplayComment("Getting....dizzy");
                     }
+					//DisplayComment (response);
                 }
             }
         }

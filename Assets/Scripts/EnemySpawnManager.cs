@@ -38,8 +38,8 @@ public class EnemySpawnManager : MonoBehaviour {
 	void Spawn ()
 	{	
 		Instance = this;
-		if(EnemyCleanupManager.Instance != null)
-			shipdead = EnemyCleanupManager.Instance.destroyed;
+		if(EnemyCleanupManagerRight.Instance != null)
+			shipdead = EnemyCleanupManagerRight.Instance.destroyed;
 		Debug.Log("shipdead: " + shipdead);
 		if(shipdead >= wavecount*3){
 			
@@ -48,7 +48,7 @@ public class EnemySpawnManager : MonoBehaviour {
 			Debug.Log("wavecount: " + wavecount);
 			count = 1;
 			next = Time.time + delay1;
-			EnemyCleanupManager.Instance.destroyed = 0;
+			EnemyCleanupManagerRight.Instance.destroyed = 0;
 		}
 		
 		if (Time.time > next){

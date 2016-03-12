@@ -22,7 +22,9 @@ public class PlayerHit : MonoBehaviour {
 
 			Debug.Log ("Ouch what the hell man?!");
 			Destroy (col.gameObject);
-			EnemyCleanupManager.Instance.destroyed++;
+			EnemyCleanupManagerRight.Instance.destroyed++;
+			Debug.Log("CRAAASSHHHHHH");
+
 		} 
 
 		else if (col.gameObject.tag == "EnemyFire") {
