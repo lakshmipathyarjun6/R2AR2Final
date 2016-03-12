@@ -5,15 +5,8 @@ using System.Collections;
 public class PlayerHit : MonoBehaviour {
 
 	public PlayerHealth healthLevel;
-	public Text RudeComments;
+	public ArduinoBluetooth commentManager;
 	public GameObject explosionEffect;
-
-	void Delay ()
-     {
-        
-        RudeComments.text = "";
-     }
-
 
 	void OnTriggerEnter (Collider col) {
 
@@ -37,8 +30,7 @@ public class PlayerHit : MonoBehaviour {
 			gameObject.GetComponent<AudioSource> ().clip = Resources.Load("Audio/PlayerHit") as AudioClip;
 
 			healthLevel.TakeAbuse (10.0f);
-			RudeComments.text = "WOAAHHHHHH DONT DO THAT SHIT BRUH!!!!";
-			Invoke("Delay", 2);
+			commentManager.DisplayComment("WOAAHHHHHH DONT DO THAT SHIT BRUH!!!!");
 			gameObject.GetComponent<AudioSource> ().Play ();
 			Instantiate (explosionEffect, transform.position + new Vector3(-2.0f,6.0f,0.0f), transform.rotation);
 

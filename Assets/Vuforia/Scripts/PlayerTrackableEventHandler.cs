@@ -101,8 +101,9 @@ namespace Vuforia
 			r2Sounds.Play ();
 
 			GameObject.FindGameObjectWithTag ("MainUI").GetComponent<UIController> ().ChangeState (1);
-			comments.text = "Welcome! Choose a song to get started!";
-			//Time.timeScale =1;
+			if (MainTrackableEventHandler.Instance.MusicSelection == -1)
+			comments.text = "Hi! Choose a song!";
+
 		}
 
 

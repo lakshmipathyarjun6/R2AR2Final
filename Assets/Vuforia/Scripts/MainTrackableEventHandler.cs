@@ -19,7 +19,9 @@ namespace Vuforia
     {
 		public Canvas uicanvas;
 		public AudioClip [] soundtracks;
+		public Text comments;
 		public int MusicSelection = -1;
+		public static MainTrackableEventHandler Instance;
 
         #region PRIVATE_MEMBER_VARIABLES
  
@@ -32,7 +34,7 @@ namespace Vuforia
         #region UNTIY_MONOBEHAVIOUR_METHODS
     
         void Start()
-        {
+		{	Instance = this;
             mTrackableBehaviour = GetComponent<TrackableBehaviour>();
             if (mTrackableBehaviour)
             {
@@ -149,6 +151,8 @@ namespace Vuforia
 			foreach(GameObject box in musicBoxes) {
 				Destroy (box);
 			}
+
+			comments.text = "";
 		}
 
 
